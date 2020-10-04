@@ -1,7 +1,7 @@
 import Foundation
 
 @main
-class SwiftSampleProject {
+class MainApplication {
   static func main() {
     print("Hello, World!")
   }

@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.16.0)
 
-project(SwiftSampleProject
-  LANGUAGES C CXX Swift)
+set(PROJECT_NAME $ENV{PROJECT_NAME})
 
-list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake/Modules)
+project(${PROJECT_NAME}
+  LANGUAGES C CXX Swift)
 
 option(WITH_SWIFT_LOG "Enable logging through swift-log" NO)
 
@@ -18,9 +18,7 @@ endif()
 find_package(dispatch CONFIG QUIET)
 find_package(Foundation CONFIG QUIET)
 
-include(SwiftSupport)
-
 add_subdirectory(Sources)
 
-export(TARGETS SwiftSampleProject
-  FILE SwiftSampleProjectConfig.cmake)
+export(TARGETS ${PROJECT_NAME}
+  FILE ${PROJECT_NAME}.cmake)
